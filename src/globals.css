@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Mitr:wght@200;300;400;500;600;700&display=swap');
+
+
 @import "tailwindcss";
 
 @theme {
@@ -90,7 +93,8 @@
   --spacing-96: 24rem;
 
   /* ── Typography — Font Families ─────────────────────── */
-  --font-sans: var(--font-inter, "Inter", ui-sans-serif, system-ui, sans-serif);
+  /* CORRIGIDO: valores diretos ao invés de variáveis circulares */
+  --font-inter: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, monospace;
 
   /* ── Typography — Font Sizes ────────────────────────── */
@@ -124,15 +128,15 @@
   --leading-10: 2.5rem;
 
   /* ── Typography — Font Weights ──────────────────────── */
-  --font-thin: 100;
-  --font-extralight: 200;
-  --font-light: 300;
-  --font-normal: 400;
-  --font-medium: 500;
-  --font-semibold: 600;
-  --font-bold: 700;
-  --font-extrabold: 800;
-  --font-black: 900;
+  --font-weight-thin: 100;
+  --font-weight-extralight: 200;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
 
   /* ── Typography — Letter Spacing ────────────────────── */
   --tracking-tighter: -0.05em;
@@ -287,9 +291,6 @@
   /* ── Radius ─────────────────────────── */
   --radius: 0.25rem;
   --field-radius: 0.75rem;
-
-  /* ── Font ───────────────────────────── */
-  --font-sans: var(--font-inter, "Inter", ui-sans-serif, system-ui, sans-serif);
 }
 
 .dark,
@@ -493,7 +494,7 @@
   body {
     background-color: var(--background);
     color: var(--foreground);
-    font-family: var(--font-sans);
+    font-family: var(--font-inter) !important;
     font-size: var(--text-base);
     line-height: var(--leading-normal);
     min-height: 100svh;
@@ -505,7 +506,7 @@
   /* ── Typography ──────────────────────────────── */
   h1 {
     font-size: var(--text-3xl);
-    font-weight: var(--font-bold);
+    font-weight: var(--font-weight-bold);
     line-height: var(--leading-9);
     letter-spacing: var(--tracking-tight);
   }
@@ -765,24 +766,6 @@
     @media (width >= 768px) {
       padding-block: 6rem;
     }
-  }
-
-  /* ── Padding utilities ───────────────────────── */
-  .p-default {
-    padding-inline: 0.75rem;
-    padding-block: 1rem;
-  }
-  .px-default {
-    padding-inline: 0.75rem;
-  }
-  .py-default {
-    padding-block: 1rem;
-  }
-  .p-section {
-    padding: 1.5rem;
-  }
-  .p-card {
-    padding: 1.25rem;
   }
 
   /* ── Surface / Card ──────────────────────────── */
@@ -1230,5 +1213,28 @@
   }
   .pointer-events-auto {
     pointer-events: auto;
+  }
+
+  /* ── Padding utilities ───────────────────────── */
+  .p-default {
+    padding-inline: 0.75rem;
+    padding-block: 1rem;
+  }
+  .px-default {
+    padding-inline: 0.75rem;
+  }
+  .py-default {
+    padding-block: 1rem;
+  }
+  .p-section {
+    padding: 1.5rem;
+  }
+  .p-card {
+    padding: 1.25rem;
+  }
+
+  /* ── Sizes fixed ─────────────────────────────── */
+  .size-icon {
+    @apply size-5;
   }
 }
